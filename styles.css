@@ -91,7 +91,7 @@ a {
 }
 
 .hero__transition.is-visible {
-  opacity: 1;
+  opacity: 0.2;
 }
 
 .hero__content {
@@ -130,10 +130,24 @@ a {
   line-height: 1.9;
 }
 
+.hero__description--lead {
+  font-size: 1.125rem;
+}
+
+.hero__note {
+  margin: 0;
+  color: var(--color-sub);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 .hero__actions {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .hero__cta {
@@ -149,6 +163,7 @@ a {
   font-size: 1rem;
   letter-spacing: 0.12em;
   transition: background 0.3s ease, color 0.3s ease;
+  width: 66%;
 }
 
 .hero__cta:hover,

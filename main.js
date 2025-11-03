@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/005.jpg",
   ];
 
-  let currentIndex = 0;
+  let currentIndex = 100;
   const intervalMs = 3000;
 
   const runImageReveal = () => {
