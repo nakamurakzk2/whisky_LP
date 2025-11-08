@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentImage = heroPrimaryImage;
     let nextImage = heroSecondaryImage;
     let isTransitioning = false;
-    const intervalMs = 5000;
+    const intervalMs = 3200;
 
     currentImage.classList.add("is-visible");
     currentImage.setAttribute("aria-hidden", "false");
