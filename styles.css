@@ -198,6 +198,9 @@ a {
 .section {
   padding: 16px;
 }
+.section__flow {
+    padding: 16px 16px 16px 0px;
+  }
 
 .section--light {
   background: #ffffff;
@@ -585,7 +588,7 @@ a {
 .perks__inner {
   position: relative;
   z-index: 2;
-  padding-top: 20px;
+  padding-top: 80px;
 }
 
 .perks__card {
@@ -706,12 +709,10 @@ a {
   margin-top: -40px;
   position: relative;
   z-index: 2;
-  padding-top: 56px;
 }
 
 .steps__inner {
   background: transparent;
-  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -720,7 +721,7 @@ a {
 .steps__hero {
   margin: 0;
   width: 100%;
-  min-height: 36vh;
+  min-height: 25vh;
   position: relative;
   background-image: url("images/0019.jpg");
   background-size: cover;
@@ -733,7 +734,6 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(18, 18, 18, 0.35);
 }
 
 .steps__hero img {
@@ -763,7 +763,7 @@ a {
 
 .steps__description {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   line-height: 1.9;
 }
 
@@ -795,7 +795,8 @@ a {
   z-index: 2;
   background: rgba(255, 255, 255, 0.96);
   color: var(--color-main);
-  padding: 32px 12px;
+  padding: 16px 12px;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -827,6 +828,16 @@ a {
   font-size: 1.4rem;
   line-height: 1;
   margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+}
+
+.flow__icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
 }
 
 .flow__step-title {
@@ -837,7 +848,7 @@ a {
 
 .flow__step-text {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   line-height: 1.8;
 }
 
@@ -856,28 +867,19 @@ a {
 .gallery__track {
   display: flex;
   gap: 0;
-  animation: gallery-scroll 24s linear infinite;
+  will-change: transform;
 }
 
 .gallery__item {
-  flex: 0 0 33.333%;
+  flex: 0 0 auto;
   margin: 0;
 }
 
 .gallery__item img {
-  width: 100%;
-  height: 180px;
+  width: 160px;
+  height: 100%;
   object-fit: cover;
   display: block;
-}
-
-@keyframes gallery-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 
 .faq {
@@ -917,7 +919,7 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-family: inherit;
   color: inherit;
   padding: 0;
@@ -936,8 +938,115 @@ a {
 
 .faq__answer {
   margin-top: 12px;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   line-height: 1.7;
+}
+
+.application {
+  background: #f8f4ea;
+  color: var(--color-main);
+}
+
+.application__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.application__title {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #2a2a2a;
+}
+
+.application__reward {
+  background: #dcd0b0;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.application__reward-label {
+  display: inline-flex;
+  align-self: flex-start;
+  background: #b08b34;
+  color: #fff;
+  letter-spacing: 0.4em;
+  font-size: 0.85rem;
+  padding: 6px 24px;
+}
+
+.application__reward-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+.application__amount {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.application__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.application__field-label {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.application__required {
+  background: #d64045;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  letter-spacing: 0.3em;
+}
+
+.application__input {
+  border: 1px solid #1e1e1e;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 100%;
+}
+
+.application__input:focus {
+  outline: 2px solid var(--color-sub);
+  outline-offset: 2px;
+}
+
+.application__submit {
+  border: none;
+  background: var(--color-sub);
+  color: var(--color-main);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  padding: 14px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.application__submit:hover,
+.application__submit:focus-visible {
+  background: #d2ba73;
+}
+
+.application__note {
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
 }
 
 @media (min-width: 768px) {
