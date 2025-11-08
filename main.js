@@ -63,4 +63,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   startLoop();
+
+  const faqToggles = document.querySelectorAll("[data-faq-toggle]");
+  faqToggles.forEach((button) => {
+    const answerId = button.getAttribute("aria-controls");
+    const answer = document.getElementById(answerId);
+    const icon = button.querySelector(".faq__icon");
+
+    if (!answer) {
+      return;
+    }
+
+    button.addEventListener("click", () => {
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      const nextState = !isExpanded;
+      button.setAttribute("aria-expanded", String(nextState));
+      answer.hidden = !nextState;
+      if (icon) {
+        icon.textContent = nextState ? "−" : "+";
+      }
+    });
+  });
 });
