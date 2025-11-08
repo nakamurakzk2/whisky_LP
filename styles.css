@@ -1032,47 +1032,15 @@ a {
 }
 
 @media (max-width: 600px) {
-  .hero {
-    padding: 40px 16px 48px;
-  }
-
-  .hero__tagline {
-    font-size: 1rem;
-    flex-direction: column;
-    gap: 6px;
-    align-items: flex-start;
-  }
-
-  .hero__content {
-    gap: 20px;
-  }
-
-  .hero__title {
-    font-size: clamp(1.9rem, 8vw, 2.4rem);
-  }
-
   .cta-button {
     width: 100%;
     gap: 12px;
     padding: 12px 18px;
   }
 
-  .hero__actions {
-    align-items: stretch;
-    text-align: center;
-  }
-
   .hero__cta {
-    width: 100%;
-    align-self: stretch;
-  }
-
-  .nft__gallery {
-    flex-direction: column;
-  }
-
-  .nft__image {
-    flex: unset;
+    width: 66%;
+    align-self: flex-end;
   }
 
   .flow__item {
