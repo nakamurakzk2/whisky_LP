@@ -69,20 +69,18 @@ a {
   object-fit: cover;
   display: block;
   opacity: 0;
-  transform: scale(1.08);
-  transition: opacity 1.4s ease, transform 3.2s ease;
-  will-change: opacity, transform;
+  transform: scale(1.04);
+  transition: opacity 1.2s ease;
+  will-change: opacity;
 }
 
 .hero__image.is-visible {
   opacity: 1;
-  transform: scale(1);
   z-index: 2;
 }
 
 .hero__image.is-exiting {
   opacity: 0;
-  transform: scale(1.12);
   z-index: 1;
 }
 
