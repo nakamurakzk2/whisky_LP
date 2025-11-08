@@ -1049,6 +1049,17 @@ a {
   text-align: center;
 }
 
+@media (max-width: 767px) {
+  .whiskey,
+  .perks,
+  .makers,
+  .steps__hero,
+  .flow {
+    background-attachment: scroll;
+    background-position: center;
+  }
+}
+
 @media (min-width: 768px) {
   .page {
     border-radius: 16px;
