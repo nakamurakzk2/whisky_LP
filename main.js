@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (heroPrimaryImage && heroSecondaryImage && transitionLayer) {
     const imageSources = [
-      "images/001.jpg",
-      "images/002.jpg",
-      "images/003.jpg",
-      "images/004.jpg",
+      "images/0023.jpg",
       "images/005.jpg",
+      "images/003.jpg",
+      "images/0021.jpg",
+      "images/0017.jpg",
     ];
 
     let currentIndex = 0;
