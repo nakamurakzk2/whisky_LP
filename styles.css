@@ -51,24 +51,39 @@ a {
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 56px 28px 64px;
+  padding: 56px 16px 64px;
 }
 
 .hero__media {
   position: absolute;
   inset: 0;
   z-index: 1;
+  overflow: hidden;
 }
 
 .hero__image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.4s ease, transform 4s ease;
+  will-change: opacity, transform;
 }
 
-.hero__image.is-fading {
-  animation: hero-image-reveal 1.6s ease forwards;
+.hero__image.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.hero__image.is-exiting {
+  opacity: 0;
+  transform: scale(1.12);
+  z-index: 1;
 }
 
 .hero__tint,
@@ -239,17 +254,6 @@ a {
   color: var(--color-sub);
   font-size: 0.9rem;
   letter-spacing: 0.24em;
-}
-
-@keyframes hero-image-reveal {
-  0% {
-    opacity: 0;
-    transform: scale(1.04);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 .section {
@@ -710,6 +714,9 @@ a {
   content: "";
   position: absolute;
   inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .steps__hero img {
@@ -883,7 +890,6 @@ a {
 .faq__item {
   background: #ffffff;
   color: var(--color-main);
-  border-radius: 12px;
   padding: 16px 12px;
 }
 
@@ -1026,6 +1032,25 @@ a {
 }
 
 @media (max-width: 600px) {
+  .hero {
+    padding: 40px 16px 48px;
+  }
+
+  .hero__tagline {
+    font-size: 1rem;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .hero__content {
+    gap: 20px;
+  }
+
+  .hero__title {
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
+  }
+
   .cta-button {
     width: 100%;
     gap: 12px;
@@ -1072,6 +1097,10 @@ a {
   .application__reward-label {
     letter-spacing: 0.2em;
     font-size: 0.75rem;
+  }
+
+  .steps__hero {
+    min-height: 220px;
   }
 }
 

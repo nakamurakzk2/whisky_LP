@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const heroImage = document.querySelector("[data-hero-image]");
+  const heroPrimaryImage = document.querySelector("[data-hero-image]");
+  const heroSecondaryImage = document.querySelector("[data-hero-image-next]");
   const transitionLayer = document.querySelector("[data-hero-transition]");
 
-  if (heroImage && transitionLayer) {
+  if (heroPrimaryImage && heroSecondaryImage && transitionLayer) {
     const imageSources = [
       "images/001.jpg",
       "images/002.jpg",
@@ -11,55 +12,95 @@ document.addEventListener("DOMContentLoaded", () => {
       "images/005.jpg",
     ];
 
-    let currentIndex = 100;
-    const intervalMs = 3000;
+    let currentIndex = 0;
+    let currentImage = heroPrimaryImage;
+    let nextImage = heroSecondaryImage;
+    let isTransitioning = false;
+    const intervalMs = 5000;
 
-    const runImageReveal = () => {
+    currentImage.classList.add("is-visible");
+    currentImage.setAttribute("aria-hidden", "false");
+    nextImage.setAttribute("aria-hidden", "true");
+
+    const revealInitialImage = () => {
       requestAnimationFrame(() => {
         transitionLayer.classList.remove("is-visible");
-        heroImage.classList.add("is-fading");
-        heroImage.addEventListener(
-          "animationend",
-          () => {
-            heroImage.classList.remove("is-fading");
-          },
-          { once: true }
-        );
       });
     };
 
-    const switchImage = (nextIndex) => {
-      transitionLayer.classList.add("is-visible");
+    if (currentImage.complete && currentImage.naturalWidth > 0) {
+      revealInitialImage();
+    } else {
+      currentImage.addEventListener("load", revealInitialImage, { once: true });
+    }
 
-      const handleLoad = () => {
-        runImageReveal();
-      };
+    const performSwitch = (nextIndex) => {
+      if (isTransitioning) {
+        return;
+      }
 
       const nextSource = imageSources[nextIndex];
-      if (heroImage.getAttribute("src") !== nextSource) {
-        heroImage.addEventListener("load", handleLoad, { once: true });
-        heroImage.setAttribute("src", nextSource);
-      } else {
+      if (!nextSource || nextSource === currentImage.getAttribute("src")) {
+        currentIndex = nextIndex;
+        return;
+      }
+
+      isTransitioning = true;
+
+      const startTransition = () => {
+        const incomingImage = nextImage;
+        const outgoingImage = currentImage;
+
+        transitionLayer.classList.add("is-visible");
         requestAnimationFrame(() => {
-          runImageReveal();
+          incomingImage.classList.add("is-visible");
+          incomingImage.setAttribute("aria-hidden", "false");
+          outgoingImage.classList.add("is-exiting");
+
+          const handleTransitionEnd = (event) => {
+            if (event.propertyName !== "opacity") {
+              return;
+            }
+            incomingImage.removeEventListener("transitionend", handleTransitionEnd);
+
+            transitionLayer.classList.remove("is-visible");
+            outgoingImage.classList.remove("is-visible", "is-exiting");
+            outgoingImage.setAttribute("aria-hidden", "true");
+
+            currentImage = incomingImage;
+            nextImage = outgoingImage;
+
+            nextImage.classList.remove("is-visible", "is-exiting");
+            nextImage.setAttribute("aria-hidden", "true");
+
+            isTransitioning = false;
+          };
+
+          incomingImage.addEventListener("transitionend", handleTransitionEnd);
         });
+      };
+
+      const handleLoad = () => {
+        startTransition();
+        currentIndex = nextIndex;
+      };
+
+      if (
+        nextImage.getAttribute("src") === nextSource &&
+        nextImage.complete &&
+        nextImage.naturalWidth > 0
+      ) {
+        handleLoad();
+      } else {
+        nextImage.addEventListener("load", handleLoad, { once: true });
+        nextImage.setAttribute("src", nextSource);
       }
     };
 
-    const startLoop = () => {
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % imageSources.length;
-        switchImage(currentIndex);
-      }, intervalMs);
-    };
-
-    if (heroImage.complete && heroImage.naturalWidth > 0) {
-      runImageReveal();
-    } else {
-      heroImage.addEventListener("load", runImageReveal, { once: true });
-    }
-
-    startLoop();
+    setInterval(() => {
+      const nextIndex = (currentIndex + 1) % imageSources.length;
+      performSwitch(nextIndex);
+    }, intervalMs);
   }
 
   const initFaqToggles = () => {
