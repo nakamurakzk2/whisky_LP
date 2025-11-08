@@ -150,32 +150,89 @@ a {
   width: 100%;
 }
 
-.hero__cta {
+.cta-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
-  padding: 12px 24px;
+  justify-content: left;
+  gap: 16px;
+  padding: 8px 12px;
   border: 1px solid var(--color-sub);
   border-radius: 0;
   background: var(--color-main);
   color: var(--color-text-light);
-  font-size: 1rem;
+  font-size: 0.8rem;
   letter-spacing: 0.12em;
   transition: background 0.3s ease, color 0.3s ease;
-  width: 66%;
-  align-self: flex-end;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.hero__cta:hover,
-.hero__cta:focus-visible {
+.cta-button:hover,
+.cta-button:focus-visible {
   background: var(--color-sub);
   color: var(--color-main);
 }
 
-.hero__cta-arrow {
+.cta-button__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+  gap: 2px;
+}
+
+.cta-button__text span {
+  display: block;
+}
+
+.cta-button__arrow {
   font-size: 1.2rem;
   transform: translateY(-1px);
+  line-height: 1;
+}
+
+.intro__cta .cta-button,
+.story__cta .cta-button,
+.furusato__cta .cta-button,
+.perks__cta .cta-button,
+.makers__cta .cta-button,
+.steps__cta .cta-button {
+  width: 65%;
+}
+
+.intro__cta .cta-button {
+  background: var(--color-sub);
+  color: var(--color-main);
+  border-color: var(--color-sub);
+}
+
+.intro__cta .cta-button:hover,
+.intro__cta .cta-button:focus-visible {
+  background: var(--color-main);
+  color: var(--color-text-light);
+}
+
+.furusato__cta .cta-button,
+.perks__cta .cta-button,
+.steps__cta .cta-button {
+  background: var(--color-sub);
+  color: var(--color-main);
+  border-color: var(--color-sub);
+}
+
+.furusato__cta .cta-button:hover,
+.furusato__cta .cta-button:focus-visible,
+.perks__cta .cta-button:hover,
+.perks__cta .cta-button:focus-visible,
+.steps__cta .cta-button:hover,
+.steps__cta .cta-button:focus-visible {
+  background: var(--color-main);
+  color: var(--color-text-light);
+}
+
+.hero__cta {
+  width: 66%;
+  align-self: flex-end;
 }
 
 .hero__cta-sub {
@@ -197,6 +254,17 @@ a {
 
 .section {
   padding: 16px;
+}
+
+.section--reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section--reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .section__flow {
     padding: 16px 16px 16px 0px;
@@ -250,49 +318,6 @@ a {
 .intro__cta {
   display: flex;
   justify-content: flex-start;
-}
-
-.intro__cta-button {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 6px;
-  padding: 12px 18px;
-  background: var(--color-sub);
-  color: var(--color-main);
-  font-size: 0.5rem;
-  letter-spacing: 0.08em;
-  min-width: 70%;
-  position: relative;
-  text-align: left;
-  line-height: 1.5;
-}
-
-.intro__cta-button:hover,
-.intro__cta-button:focus-visible {
-  filter: brightness(0.95);
-}
-
-.intro__cta-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  line-height: 1.5;
-}
-
-.intro__cta-lines span {
-  display: block;
-}
-
-.intro__cta-arrow {
-  font-size: 1rem;
-}
-
-.intro__cta-lines span:last-child {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .story__inner {
@@ -363,27 +388,6 @@ a {
 .story__cta {
   display: flex;
   justify-content: flex-start;
-}
-
-.story__cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  padding: 10px 24px;
-  border: 1px solid var(--color-sub);
-  color: var(--color-text-light);
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
-}
-
-.story__cta-button:hover,
-.story__cta-button:focus-visible {
-  background: var(--color-sub);
-  color: var(--color-main);
-}
-
-.story__cta-arrow {
-  font-size: 1.2rem;
 }
 
 .whiskey {
@@ -491,34 +495,6 @@ a {
   justify-content: flex-start;
 }
 
-.furusato__cta-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  background: var(--color-sub);
-  color: var(--color-main);
-  padding: 16px 20px;
-  min-width: 75%;
-  letter-spacing: 0.08em;
-  font-size: 0.9rem;
-}
-
-.furusato__cta-button:hover,
-.furusato__cta-button:focus-visible {
-  filter: brightness(0.95);
-}
-
-.furusato__cta-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.4;
-}
-
-.furusato__cta-arrow {
-  font-size: 1.2rem;
-}
-
 .nft__inner {
   gap: 20px;
 }
@@ -594,7 +570,7 @@ a {
 .perks__card {
   background: #ffffff;
   color: var(--color-main);
-  padding: 32px 20px 24px;
+  padding: 32px 8px 24px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1027,19 +1003,8 @@ a {
 }
 
 .application__submit {
-  border: none;
-  background: var(--color-sub);
-  color: var(--color-main);
-  font-size: 1rem;
-  letter-spacing: 0.12em;
-  padding: 14px;
+  width: 100%;
   margin-top: 8px;
-  cursor: pointer;
-}
-
-.application__submit:hover,
-.application__submit:focus-visible {
-  background: #d2ba73;
 }
 
 .application__note {
@@ -1057,6 +1022,56 @@ a {
   .flow {
     background-attachment: scroll;
     background-position: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-button {
+    width: 100%;
+    gap: 12px;
+    padding: 12px 18px;
+  }
+
+  .hero__actions {
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .hero__cta {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .nft__gallery {
+    flex-direction: column;
+  }
+
+  .nft__image {
+    flex: unset;
+  }
+
+  .flow__item {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .flow__icon {
+    margin-top: 0;
+    height: 40px;
+  }
+
+  .flow__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .application__reward {
+    padding: 24px 16px;
+  }
+
+  .application__reward-label {
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
   }
 }
 
