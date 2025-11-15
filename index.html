@@ -8,8 +8,39 @@
   </head>
   <body>
     <div class="app">
+      <header class="site-header" data-reveal>
+        <div class="site-header__inner">
+          <div class="site-header__brand">
+            <span class="site-header__logo">Miyota Distillery</span>
+            <span class="site-header__tagline">Cask #1 / Whisky×NFT</span>
+          </div>
+          <nav class="site-header__nav" id="site-nav" aria-label="主要ナビゲーション">
+            <a href="#story">Story</a>
+            <a href="#whiskey">Whisky</a>
+            <a href="#nft">NFT</a>
+            <a href="#flow">Flow</a>
+            <a href="#application">Application</a>
+          </nav>
+          <a class="cta-button site-header__cta" href="#application" data-scroll-to="application">
+            <span class="cta-button__text">寄付をする</span>
+            <span aria-hidden="true" class="cta-button__arrow">→</span>
+          </a>
+          <button
+            class="site-header__toggle"
+            type="button"
+            data-header-toggle
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="メニューを開閉"
+          >
+            <span class="site-header__toggle-bar" aria-hidden="true"></span>
+            <span class="site-header__toggle-bar" aria-hidden="true"></span>
+            <span class="site-header__toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
       <main class="page">
-        <section class="hero">
+        <section class="hero section--reveal" id="top" data-reveal>
           <div class="hero__media">
             <img
               src="images/001.jpg"
@@ -53,24 +84,41 @@
               </a>
               <span class="hero__cta-sub">Whisky×NFT</span>
             </div>
+            <ul class="hero__stats" aria-label="プロジェクトのハイライト">
+              <li class="hero__stat">
+                <span class="hero__stat-value">3年</span>
+                <span class="hero__stat-label">熟成を待つ時間</span>
+              </li>
+              <li class="hero__stat">
+                <span class="hero__stat-value">限定</span>
+                <span class="hero__stat-label">NFTオーナー権</span>
+              </li>
+              <li class="hero__stat">
+                <span class="hero__stat-value">御代田</span>
+                <span class="hero__stat-label">浅間山麓の風土</span>
+              </li>
+            </ul>
+            <p class="hero__footnote">
+              浅間山麓1,000mの冷涼な空気と清らかな伏流水が、樽の呼吸をゆっくりと促し、やわらかく輪郭のある味わいを育てます。
+            </p>
           </div>
         </section>
-        <section class="section section--light intro section--reveal" data-reveal>
-          <div class="section__inner">
-            <p class="intro__eyebrow">Own a Limited whisky</p>
-            <h2 class="intro__title">「軽井沢」の技と志、御代田でふたたび。</h2>
-            <p class="intro__description">
+        <section class="section section--light intro" id="origin">
+          <div class="section__inner intro__inner">
+            <p class="intro__eyebrow section--reveal" data-reveal>Own a Limited whisky</p>
+            <h2 class="intro__title section--reveal" data-reveal>「軽井沢」の技と志、御代田でふたたび。</h2>
+            <p class="intro__description section--reveal" data-reveal>
               <strong>旧メルシャン軽井沢蒸留所</strong>の記憶を受け継ぎ、浅間山の麓・御代田で始まった新しい一歩。
-              伝説ウイスキー「軽井沢」が今、現代の技術とともに新しいウイスキーとしてよみがえる。ふるさと納税でウイスキーの“オーナー権”をNFTとして手に入れ、熟成とともにご自身の物語を育ててみませんか。
+              伝説ウイスキー「軽井沢」が今、現代の技術とともに新しいウイスキーとしてよみがえる。ふるさと納税でウイスキーの"オーナー権"をNFTとして手に入れ、熟成とともにご自身の物語を育ててみませんか。
             </p>
-            <figure class="intro__media">
+            <figure class="intro__media section--reveal" data-reveal>
               <img
                 src="images/2510_0036.jpg"
                 alt="樽の移動準備を行う職人"
                 loading="lazy"
               />
             </figure>
-            <div class="intro__cta">
+            <div class="intro__cta section--reveal" data-reveal>
               <a class="cta-button" href="#application" data-scroll-to="application">
                 <span class="cta-button__text">
                   <span>寄附をして</span>
@@ -81,39 +129,42 @@
             </div>
           </div>
         </section>
-        <section class="section section--dark story">
+        <section class="section section--dark story section--reveal" id="story" data-reveal>
           <div class="section__inner story__inner">
-            <div class="story__block story__block--centered">
-              <div class="story__headline">
-                <h2 class="story__heading">閉鎖された蒸留所が生んだ伝説</h2>
-                <p class="story__subheading">ー 軽井沢の歴史 ー</p>
-              </div>
+            <div class="story__block story__block--split">
               <figure class="story__media">
                 <img src="images/0020.jpg" alt="軽井沢蒸留所の蒸留器" loading="lazy" />
               </figure>
-              <p class="story__description">
-                かつて長野県・軽井沢蒸留所で生み出されたウイスキー「軽井沢」は、<strong>国産シングルモルトの先駆け</strong>として<strong>高品質</strong>ぶりが世界的に評価されました。しかし2000年に生産を停止し、2012年に蒸留所は閉鎖されています。その後、「軽井沢」ボトルは世界中のオークションで高値の象徴となり、2023年には「軽井沢1960年」1本が<strong>約5,600万円（30万ポンド）</strong>で落札されました。幻の銘柄として、その希少価値は今なお際立っています。
-              </p>
+              <div class="story__content">
+                <div class="story__headline">
+                  <h2 class="story__heading">閉鎖された蒸留所が生んだ伝説</h2>
+                  <p class="story__subheading">ー 軽井沢の歴史 ー</p>
+                </div>
+                <p class="story__description">
+                  かつて長野県・軽井沢蒸留所で生み出されたウイスキー「軽井沢」は、<strong>国産シングルモルトの先駆け</strong>として<strong>高品質</strong>ぶりが世界的に評価されました。しかし2000年に生産を停止し、2012年に蒸留所は閉鎖されています。その後、「軽井沢」ボトルは世界中のオークションで高値の象徴となり、2023年には「軽井沢1960年」1本が<strong>約5,600万円（30万ポンド）</strong>で落札されました。幻の銘柄として、その希少価値は今なお際立っています。
+                </p>
+              </div>
             </div>
-            <hr class="story__divider" />
-            <div class="story__block">
-              <h3 class="story__heading">なぜ御代田なのか</h3>
+            <div class="story__block story__block--split story__block--reverse">
               <figure class="story__media">
                 <img src="images/005.jpg" alt="御代田町と浅間山の景観" loading="lazy" />
               </figure>
-              <p class="story__description">
-                御代田町は、かつて「軽井沢」ウイスキーを造っていた旧軽井沢蒸留所があった地です。現在も町役場には当時実際に使用されていた銅製ポットスチル（蒸留器）が展示されており、その歴史の体温が生きています。いま、その記憶を未来へつなぐために、町内の<strong>御代田蒸留所（戸塚酒造）</strong>で新たな挑戦が始まっています。
-              </p>
-              <div class="story__cta">
-                <a class="cta-button" href="#application" data-scroll-to="application">
-                  <span class="cta-button__text">寄付をする</span>
-                  <span aria-hidden="true" class="cta-button__arrow">→</span>
-                </a>
+              <div class="story__content">
+                <h3 class="story__heading">なぜ御代田なのか</h3>
+                <p class="story__description">
+                  御代田町は、かつて「軽井沢」ウイスキーを造っていた旧軽井沢蒸留所があった地です。現在も町役場には当時実際に使用されていた銅製ポットスチル（蒸留器）が展示されており、その歴史の体温が生きています。いま、その記憶を未来へつなぐために、町内の<strong>御代田蒸留所（戸塚酒造）</strong>で新たな挑戦が始まっています。
+                </p>
+                <div class="story__cta">
+                  <a class="cta-button" href="#application" data-scroll-to="application">
+                    <span class="cta-button__text">寄付をする</span>
+                    <span aria-hidden="true" class="cta-button__arrow">→</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
-        <section class="section whiskey section--reveal" aria-labelledby="whiskey-title" data-reveal>
+        <section class="section whiskey section--reveal" id="whiskey" aria-labelledby="whiskey-title" data-reveal>
           <div class="section__inner whiskey__inner-top">
             <p class="whiskey__eyebrow">Characteristics of whiskey</p>
             <h2 class="whiskey__title" id="whiskey-title">ウィスキーの特徴</h2>
@@ -139,35 +190,39 @@
             </div>
           </div>
         </section>
-        <section class="section section--light furusato" aria-labelledby="furusato-title">
+        <section class="section section--light furusato section--reveal" id="furusato" aria-labelledby="furusato-title" data-reveal>
           <div class="section__inner furusato__inner">
-            <h2 class="furusato__title" id="furusato-title">ふるさと納税とは</h2>
-            <p class="furusato__description">
-              ふるさと納税をすると寄付額の約3割相当のお礼の品があなたに届けられます。また、一部の寄付額はあなたが選んだ寄付金額の使い道に使用されます。「寄付金額の使い道」はまちづくりや産業振興など、いくつか項目があり自治体によって決められています。
-            </p>
-            <p class="furusato__description">
-              寄付金のうち2,000円を超える部分については、あなたが住む地域の住民税の減額（控除）や税務署から所得税の払い戻し（還付）を受けられます。
-            </p>
-            <figure class="furusato__media">
-              <img src="images/furusatonozei.png" alt="ふるさと納税の仕組み" loading="lazy" />
-            </figure>
-            <div class="furusato__cta">
-              <a class="cta-button" href="#application" data-scroll-to="application">
-                <span class="cta-button__text">
-                  <span>寄附をして</span>
-                  <span>オーナー権を手に入れる</span>
-                </span>
-                <span aria-hidden="true" class="cta-button__arrow">→</span>
-              </a>
+            <div class="furusato__content">
+              <h2 class="furusato__title" id="furusato-title">ふるさと納税とは</h2>
+              <p class="furusato__description">
+                ふるさと納税をすると寄付額の約3割相当のお礼の品があなたに届けられます。また、一部の寄付額はあなたが選んだ寄付金額の使い道に使用されます。「寄付金額の使い道」はまちづくりや産業振興など、いくつか項目があり自治体によって決められています。
+              </p>
+              <p class="furusato__description">
+                寄付金のうち2,000円を超える部分については、あなたが住む地域の住民税の減額（控除）や税務署から所得税の払い戻し（還付）を受けられます。
+              </p>
+            </div>
+            <div class="furusato__visuals">
+              <figure class="furusato__media">
+                <img src="images/furusatonozei.png" alt="ふるさと納税の仕組み" loading="lazy" />
+                <figcaption class="furusato__caption">ふるさと納税の概要イメージ</figcaption>
+              </figure>
             </div>
           </div>
         </section>
-        <section class="section section--dark nft" aria-labelledby="nft-title">
+        <section class="section section--dark nft section--reveal" id="nft" aria-labelledby="nft-title" data-reveal>
           <div class="section__inner nft__inner">
-            <h2 class="nft__title" id="nft-title">NFTで広がる所有の形と体験価値</h2>
-            <p class="nft__description">
-              NFT（Non-Fungible Token）とは、デジタル資産の唯一性と所有権を証明するための技術です。このNFTは単なる証明書としてだけでなく、マーケットで取引することも可能です。オーナー権を行使せずに、他のウイスキー愛好家や投資家に売却し、デジタル資産としての価値を楽しむこともできます。NFTならではの自由な選択肢を、ぜひ体験してください。
-            </p>
+            <div class="nft__content">
+              <h2 class="nft__title" id="nft-title">NFTで広がる所有の形と体験価値</h2>
+              <p class="nft__description">
+                NFT（Non-Fungible Token）とは、デジタル資産の唯一性と所有権を証明するための技術です。このNFTは単なる証明書としてだけでなく、マーケットで取引することも可能です。オーナー権を行使せずに、他のウイスキー愛好家や投資家に売却し、デジタル資産としての価値を楽しむこともできます。NFTならではの自由な選択肢を、ぜひ体験してください。
+              </p>
+              <p class="nft__description">
+                本プロジェクトは、「ふるさと納税」を通じて、日本各地の蒸留所で丁寧に仕込まれた原酒を、将来の自分への贈り物として予約できる、新しい体験型寄付プランです。
+              </p>
+              <p class="nft__description">
+                選んだウイスキーは3年の熟成を経てお届け。その間の所有証明として、NFT形式の電子引換券が発行されます。
+              </p>
+            </div>
             <div class="nft__gallery">
               <figure class="nft__image nft__image--wide">
                 <img src="images/0012.jpg" alt="ウイスキー樽を見守る手" loading="lazy" />
@@ -176,15 +231,9 @@
                 <img src="images/nft.png" alt="NFTアプリ画面" loading="lazy" />
               </figure>
             </div>
-            <p class="nft__description">
-              本プロジェクトは、「ふるさと納税」を通じて、日本各地の蒸留所で丁寧に仕込まれた原酒を、将来の自分への贈り物として予約できる、新しい体験型寄付プランです。
-            </p>
-            <p class="nft__description">
-              選んだウイスキーは3年の熟成を経てお届け。その間の所有証明として、NFT形式の電子引換券が発行されます。
-            </p>
           </div>
         </section>
-        <section class="section perks section--reveal" aria-labelledby="perks-title" data-reveal>
+        <section class="section perks section--reveal" id="perks" aria-labelledby="perks-title" data-reveal>
           <div class="section__inner perks__inner">
             <div class="perks__card">
               <p class="perks__label">限定特典</p>
@@ -213,7 +262,7 @@
             </div>
           </div>
         </section>
-        <section class="section makers" aria-labelledby="makers-title">
+        <section class="section makers section--reveal" id="makers" aria-labelledby="makers-title" data-reveal>
           <div class="section__inner makers__inner">
             <h2 class="makers__title" id="makers-title">作り手と体制</h2>
             <figure class="makers__media">
@@ -239,7 +288,7 @@
         <figure class="steps__hero">
           <img src="images/0019.jpg" alt="御代田町の風景" loading="lazy" />
         </figure>
-        <section class="section steps" aria-labelledby="steps-title">
+        <section class="section steps section--reveal" id="flow" aria-labelledby="steps-title" data-reveal>
           <div class="section__inner steps__inner">
             <p class="steps__eyebrow">かんたん4ステップ</p>
             <h2 class="steps__title" id="steps-title">ふるさと納税の流れ</h2>
@@ -260,7 +309,7 @@
             </div> -->
           </div>
         </section>
-        <section class="section__flow flow" aria-labelledby="flow-title">
+        <section class="section__flow flow section--reveal" aria-labelledby="flow-title" data-reveal>
           <div class="section__inner flow__inner">
             <ol class="flow__list">
               <li class="flow__item">
@@ -386,7 +435,7 @@
             </ol>
           </div>
         </section>
-        <section class="section gallery-faq" aria-labelledby="gallery-faq-title">
+        <section class="section gallery-faq section--reveal" id="gallery" aria-labelledby="gallery-faq-title" data-reveal>
           <div class="gallery">
             <div class="gallery__track" aria-hidden="true" data-gallery-track>
               <figure class="gallery__item">
@@ -460,7 +509,7 @@
             </ul>
           </div>
         </section>
-        <section class="section application" id="application" aria-labelledby="application-title">
+        <section class="section application section--reveal" id="application" aria-labelledby="application-title" data-reveal>
           <div class="section__inner application__inner">
             <h2 class="application__title" id="application-title">寄付のお申込み</h2>
             <div class="application__reward">

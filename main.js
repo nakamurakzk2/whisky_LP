@@ -170,6 +170,40 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(animate);
   };
 
+  const initHeaderToggle = () => {
+    const header = document.querySelector(".site-header");
+    const toggle = document.querySelector("[data-header-toggle]");
+    const nav = document.getElementById("site-nav");
+
+    if (!header || !toggle || !nav) {
+      return;
+    }
+
+    const closeMenu = () => {
+      header.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.addEventListener("click", () => {
+      const willOpen = !header.classList.contains("is-open");
+      header.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(willOpen));
+    });
+
+    nav.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target instanceof Element && target.closest("a")) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(min-width: 960px)").matches) {
+        closeMenu();
+      }
+    });
+  };
+
   const initScrollToApplication = () => {
     const target = document.getElementById("application");
     if (!target) {
@@ -218,6 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach((section) => observer.observe(section));
   };
 
+  initHeaderToggle();
   initFaqToggles();
   initGalleryMarquee();
   initScrollToApplication();
