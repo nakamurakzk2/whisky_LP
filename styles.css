@@ -226,7 +226,7 @@ a {
 }
 
 .hero__tint {
-  background: rgba(18, 18, 18, 0.5);
+  background: rgba(18, 18, 18, 0.85);
   z-index: 2;
 }
 
