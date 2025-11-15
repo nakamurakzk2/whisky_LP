@@ -332,7 +332,7 @@ a {
 .cta-button {
   display: inline-flex;
   align-items: center;
-  justify-content: left;
+  justify-content: space-between;
   gap: 16px;
   padding: 8px 12px;
   border: 1px solid var(--color-sub);
@@ -753,6 +753,13 @@ a {
   gap: 16px;
 }
 
+.nft__eyebrow {
+  margin: 0;
+  color: var(--color-sub);
+  letter-spacing: 0.14em;
+  font-size: 1.25rem;
+}
+
 .nft__title {
   margin: 0;
   font-size: 1.5rem;
@@ -836,14 +843,14 @@ a {
 
 .perks__label {
   position: absolute;
-  top: -14px;
+  top: -25px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
   background: var(--color-sub);
   color: #ffffff;
   padding: 8px 24px;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
   letter-spacing: 0.12em;
   border: 2px solid #ffffff;
 }
@@ -910,6 +917,12 @@ a {
   gap: 20px;
 }
 
+.makers__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .makers__title {
   margin: 0;
   font-size: 1.5rem;
@@ -934,6 +947,7 @@ a {
 .makers__cta {
   display: flex;
   justify-content: flex-start;
+  margin-top: 16px;
 }
 
 .steps {
@@ -1403,7 +1417,7 @@ a {
 
   .cta-button {
     padding: 12px 24px;
-    gap: 20px;
+    gap: 180px;
     font-size: 0.95rem;
   }
 
@@ -1636,23 +1650,46 @@ a {
   }
 
   .perks__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-    gap: 40px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+  }
+
+  .perks__card {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .perks__media img {
     height: 100%;
+    max-width: 50%;
+    margin: 0 auto;
     object-fit: cover;
-    border-radius: 32px;
   }
 
   .makers__inner {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     gap: 48px;
     align-items: center;
+    grid-template-rows: auto auto;
+  }
+
+  .makers__content {
+    justify-self: start;
+  }
+
+  .makers__media {
+    justify-self: stretch;
+    grid-row: 1 / span 2;
+    grid-column: 2;
+  }
+
+  .makers__cta {
+    grid-column: 1;
+    margin-top: 0;
+    align-self: start;
   }
 
   .steps__inner {
